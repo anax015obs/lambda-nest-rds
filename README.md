@@ -23,4 +23,4 @@ Nest app boilerplate for CDK development with AWS RDS, AWS Lambda.
 - you need `docker@20.10.21` and `docker-compose@2.14.2`
 - aws configuration with named profile ([how to configure aws profile via cli](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-configure-profiles.html))
 - cdk bootstraped ([how to bootstrapping for cdk development](https://docs.aws.amazon.com/ko_kr/cdk/v2/guide/bootstrapping.html))
-- make environment files named `env/.env/local`, `env/.env/production`, `env/.env/system`. All required keys are defined on env/required.json.
+- make environment files named `env/.env.secrets`. All required keys are defined on env/required.json.
