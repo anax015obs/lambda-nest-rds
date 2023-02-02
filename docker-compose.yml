@@ -1,0 +1,30 @@
+# for develop
+version: "3"
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - dbstorage:/var/lib/mysql
+    restart: always
+    container_name: ${CDK_STACK_NAME}-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PW}
+      - MYSQL_DATABASE=local
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    expose:
+      - ${DB_PORT}
+    command: ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_general_ci"]
+  redis:
+    image: redis
+    command: redis-server --port ${REDIS_PORT}
+    restart: always
+    container_name: ${CDK_STACK_NAME}-redis
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}
+    expose:
+      - ${REDIS_PORT}
+volumes:
+  dbstorage:
+    name: ${CDK_STACK_NAME}-volume
